@@ -12,5 +12,34 @@ pipeline {
       }
     }
 
+    stage('Build') {
+      parallel {
+        stage('Build') {
+          steps {
+            sh 'echo hola'
+          }
+        }
+
+        stage('Log') {
+          steps {
+            sh 'echo adios'
+          }
+        }
+
+      }
+    }
+
+    stage('Test') {
+      steps {
+        sh 'echo test'
+      }
+    }
+
+    stage('Build artifacts') {
+      steps {
+        sh 'echo hello'
+      }
+    }
+
   }
 }
